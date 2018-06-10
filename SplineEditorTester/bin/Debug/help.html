@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Spline Editor Help</title>
+</head>
+<body>
+<h1>Spline Editor Help</h1>
+<div class="TOC">
+<table>
+<tr><th><a href="#_Intro">Introduction</a></th></tr>
+<tr><th><a href="#_Editor">Editor</a></th></tr>
+<tr><th><a href="#_Controls">Controls</a></th></tr>
+<tr><th><a href="#_Files">Files</a></th></tr>
+<tr><th><a href="#_Comments">Comments</a></th></tr>
+</table>
+<div class="Intro">
+<h3 id="_Intro">Introduction</h3>
+<p>The spline editor allows for the creation of custom curves made up of hermite curves. The splines can be saved out to a
+xml file and loaded back in easily. In order to use the splines in other projects, the spline library will be required. The
+controls and function of each tool can be found below</p>
+</div>
+<div class="Editor">
+<h3 id="_Editor">Editor</h3>
+<p>The spline editor is the big grey box to the left of the application. By default, a straight line will be constructed. 
+The red knots inside the editor represent the knots of the spline. To add a new knot to the spline, left click anywhere on the
+segment you wish to add the knot to (clicking will not always result in a knot being created, see <a href="#_Comments">comments</a> section for reasons).
+When adding a new knot to the spline, the control points/tangents of the segments existing knots will be manipulated to keep the
+original curve intact, However, if the editing mode is set to <b>Hermite</b>, the tangents will be manipulated in order to keep
+consistency. To remove a knot, right click on the knot you wish to remove (keep in mind, it is impossible to remove the start and end knot!).
+Removing a knot will result in the editor trying to maintain the original curve of the two segments, this may result in some whacky curves afterwards however.</p>
+<p>When <b>Bezier</b> mode is active, all of the splines controls points will be represented by a blue square. The blue lines casting from the 
+squares are the control points/knots said control point links from and to. To move a control point, simply click then drag the control point
+to where you want it. Note that moving a knot/control point in <b>Bezier</b> mode will result in only the selected point being manipulated.</p>
+<p>When <b>Hermite</b> mode is active, the knots in and out tangents (out for starting knot, in for ending knot) are represented by 
+green circles with lines leading back to the knot it belongs to. You can move the tangent by clicking then dragging it, but when doing so, the
+knots oppisite tangent will negate the movements made upon the selected tangent ( this is to keep consistency amongst spline ). Selecting a knot
+and moving it while in this mode will result in both tangents moving with it (unlike <b>bezier</b> mode where controls points stay where they are).</p>
+<p>To move the camera, hold down the W,S,A,D keys (only one key can be held at a time). The direction of each key is listed below:</p>
+<ul style="list-style-type:none">
+<li>W = Up</li>
+<li>S = Down</li>
+<li>A = Left</li>
+<li>D = Right</li>
+</ul>
+<p>To focus the camera on the spline (in case you get lost), press the F button. This will move the camera to the splines starting knot</p>
+</div>
+<div class="Controls">
+<h3 id="_Controls">Controls</h3>
+<p>The controls for the editor can be found on the right hand side of the application. These controls can be used to help analyze and create your curve. To interpolate
+your curve at real time, you can set the interpolate checkbox to true, which will draw a yellow circle along your curve at the time found in the input box found to the right
+of the checkbox. The input box on the right represents the time for the interpolation; this time can be manipulate at any time, but the yellow circle will only be shown if
+interpolate is set to true. The value of time will be clamped to stay within 0 and the amount of segments of the spline (segments is the amount of knots subtracted by one).</p>
+<p>The <b>Bezier</b> and <b>Hermite</b> buttons switch between the editing modes for the spline. The selected mode will be shaded out and un-selectable.</p>
+<p>The cameras position can be controlled manually by the input boxes below the editing mode buttons. The axis the input box represents is highlighted to the left 
+of the input box. It is still possible to move the camera while changing these values.</p>
+</div>
+<div class="Files">
+<h3 id="_Files">Files</h3>
+<p>The new button (can also be found in file menu bar) will create a new spline editor tab that defaults to a straight line. The name will also default to spline.</p>
+<p>The close button will close the <b>selected</b> tab. Make sure to save your work before doing closing!</p>
+<p>The save button will open up a dialog box where the <b>selected tabs spline</b> can be saved. The default name of the spline will be set to the name of tab and saved as an XML file.</p>
+<p>The open button will open up a dialog box where saved splines can be loaded (assure xml file contains spline).</p>
+</div>
+<div class="Comments">
+<h3 id="_Comments">Comments</h3>
+<p>The math involved for calculating if a point lies on a line doesn't work with straight lines and sometimes other curves. I was originally going to flatten the curve then check if
+the point was between the flattened segment but calculating the results weren't as good as they are now.</p>
+<h4 id="_Sources">Sources</h4>
+<p>These are the books, websites and guides I studied to help me make the spline editor.</p>
+<ul>
+<li><a href="http://cagd.cs.byu.edu/~557/text/ch17.pdf">Inversion of Bezier Curves</a> - Page 200 - 201</li>
+<li><a href="https://stackoverflow.com/questions/328107/how-can-you-determine-a-point-is-between-two-other-points-on-a-line-segment">If point lies on line</a> - Not used</li>
+<li><a href="https://www.geometrictools.com/Documentation/MovingAlongCurveSpecifiedSpeed.pdf">Time to parameter</a> - Not used</li>
+<li><a href="https://math.stackexchange.com/questions/877725/retrieve-the-initial-cubic-b%C3%A9zier-curve-subdivided-in-two-b%C3%A9zier-curves/879213#879213">Couple two segments</a></li>
+<li><a href="https://stackoverflow.com/questions/8054405/joining-bezier-curves">Join two bezier curves</a></li>
+<li><a href="https://pomax.github.io/bezierinfo">A Primer on Bezier Curves</a></li>
+<li>3D Math Primer for Graphics and Game Development, 2nd Edition - Chapter 13</li>
+</div>
+</body>
+</html>

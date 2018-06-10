@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Spline Knots="3">
+  <k0>
+    <Point>
+      <X>70</X>
+      <Y>50</Y>
+    </Point>
+    <Out>
+      <X>511.6782</X>
+      <Y>34.37631</Y>
+    </Out>
+  </k0>
+  <k1>
+    <Point>
+      <X>359</X>
+      <Y>272</Y>
+    </Point>
+    <In>
+      <X>-768</X>
+      <Y>384</Y>
+    </In>
+    <Out>
+      <X>-699</X>
+      <Y>261</Y>
+    </Out>
+  </k1>
+  <k2>
+    <Point>
+      <X>630</X>
+      <Y>450</Y>
+    </Point>
+    <In>
+      <X>1290</X>
+      <Y>-51</Y>
+    </In>
+  </k2>
+</Spline>
